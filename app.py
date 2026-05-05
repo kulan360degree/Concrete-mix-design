@@ -11,65 +11,167 @@ st.set_page_config(
 st.markdown("""
 <style>
 html, body, [class*="css"] { font-family: Arial, sans-serif; }
+
 .stApp { background-color: #f5f7fa; }
-section[data-testid="stSidebar"] { background-color: #1a2f4a; }
-section[data-testid="stSidebar"] * { color: #ffffff !important; }
+
+section[data-testid="stSidebar"] {
+    background-color: #1a2f4a;
+}
+
+section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] .stSelectbox label,
 section[data-testid="stSidebar"] .stNumberInput label,
 section[data-testid="stSidebar"] .stCheckbox label,
 section[data-testid="stSidebar"] .stSlider label {
-    color: #f0c060 !important; font-size: 0.82rem !important;
-    font-weight: 700 !important; text-transform: uppercase;
+    color: #f0c060 !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
 }
-div[data-testid="metric-container"] {
-    background-color: #1a2f4a; border: 2px solid #e8a020;
-    border-radius: 10px; padding: 16px 20px;
+
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span {
+    color: #ffffff !important;
 }
-div[data-testid="metric-container"] label {
-    color: #f0c060 !important; font-size: 0.78rem !important;
-    font-weight: 700 !important; text-transform: uppercase;
+
+section[data-testid="stSidebar"] div[data-baseweb="select"] div,
+section[data-testid="stSidebar"] div[data-baseweb="select"] span,
+section[data-testid="stSidebar"] div[data-baseweb="select"] input,
+section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] * {
+    color: #ffffff !important;
+    background-color: #243d5c !important;
 }
-div[data-testid="metric-container"] [data-testid="stMetricValue"] {
-    color: #ffffff !important; font-size: 1.6rem !important; font-weight: 700 !important;
+
+section[data-testid="stSidebar"] div[data-baseweb="select"] svg {
+    fill: #f0c060 !important;
 }
+
+section[data-testid="stSidebar"] input[type="number"],
+section[data-testid="stSidebar"] input {
+    color: #ffffff !important;
+    background-color: #243d5c !important;
+    border: 1px solid #4a7aa0 !important;
+    border-radius: 5px !important;
+}
+
+section[data-testid="stSidebar"] .stCheckbox span {
+    color: #ffffff !important;
+}
+
+section[data-testid="stSidebar"] .stSlider div,
+section[data-testid="stSidebar"] .stSlider span {
+    color: #f0c060 !important;
+}
+
+ul[data-testid="stSelectboxVirtualDropdown"] li,
+div[data-baseweb="popover"] li,
+div[data-baseweb="menu"] li,
+div[role="listbox"] div,
+div[role="option"] {
+    color: #1a2f4a !important;
+    background-color: #ffffff !important;
+    font-size: 0.9rem !important;
+}
+div[role="option"]:hover {
+    background-color: #e8f0fe !important;
+    color: #1a2f4a !important;
+}
+
+section[data-testid="stSidebar"] hr {
+    border-color: #4a7aa0;
+}
+
 .stButton > button {
-    background-color: #e8a020 !important; color: #0a1628 !important;
-    font-weight: 700 !important; font-size: 1rem !important;
-    border: none !important; border-radius: 6px !important; width: 100% !important;
+    background-color: #e8a020 !important;
+    color: #0a1628 !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    border: none !important;
+    border-radius: 6px !important;
+    width: 100% !important;
+    padding: 0.6rem !important;
 }
+.stButton > button:hover {
+    background-color: #c07010 !important;
+    color: #ffffff !important;
+}
+
 .section-header {
-    font-size: 0.75rem; color: #0a1628; background-color: #e8a020;
-    padding: 5px 12px; border-radius: 4px; letter-spacing: 0.1em;
-    margin: 14px 0 8px 0; display: inline-block; font-weight: 700;
+    font-size: 0.75rem;
+    color: #0a1628;
+    background-color: #e8a020;
+    padding: 5px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+    margin: 14px 0 8px 0;
+    display: inline-block;
+    font-weight: 700;
 }
+
 .main-title {
-    font-size: 2rem; color: #1a2f4a; letter-spacing: 0.08em;
+    font-size: 2rem; color: #1a2f4a;
     font-weight: 700; margin-bottom: 0;
 }
 .main-sub {
-    font-size: 0.9rem; color: #4a7aa0; letter-spacing: 0.12em;
+    font-size: 0.9rem; color: #4a7aa0;
     text-transform: uppercase; margin-bottom: 1.5rem; font-weight: 500;
 }
+
+div[data-testid="metric-container"] {
+    background-color: #1a2f4a;
+    border: 2px solid #e8a020;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+div[data-testid="metric-container"] label {
+    color: #f0c060 !important;
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+div[data-testid="metric-container"] [data-testid="stMetricValue"] {
+    color: #ffffff !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+}
+
 .ratio-card {
-    background-color: #1a2f4a; border: 2px solid #4a7aa0;
-    border-top: 4px solid #e8a020; border-radius: 8px;
-    padding: 16px 20px; text-align: center;
+    background-color: #1a2f4a;
+    border: 2px solid #4a7aa0;
+    border-top: 4px solid #e8a020;
+    border-radius: 8px;
+    padding: 16px 20px;
+    text-align: center;
 }
 .ratio-label {
-    font-size: 0.72rem; color: #f0c060; letter-spacing: 0.1em;
-    text-transform: uppercase; font-weight: 700;
+    font-size: 0.72rem; color: #f0c060;
+    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
 }
 .ratio-value {
-    font-size: 1.4rem; color: #ffffff; margin-top: 8px; font-weight: 700;
+    font-size: 1.4rem; color: #ffffff;
+    margin-top: 8px; font-weight: 700;
 }
+
 .result-box {
-    background-color: #1a2f4a; border: 1px solid #4a7aa0;
-    border-left: 5px solid #e8a020; border-radius: 8px;
-    padding: 20px 24px; font-family: monospace; font-size: 0.85rem;
-    color: #e0eaf5; line-height: 2.0; white-space: pre-wrap;
+    background-color: #1a2f4a;
+    border: 1px solid #4a7aa0;
+    border-left: 5px solid #e8a020;
+    border-radius: 8px;
+    padding: 20px 24px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #e0eaf5;
+    line-height: 2.0;
+    white-space: pre-wrap;
 }
-h4 { color: #1a2f4a !important; font-weight: 700 !important;
-    border-bottom: 2px solid #e8a020; padding-bottom: 4px; }
+
+h4 {
+    color: #1a2f4a !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid #e8a020;
+    padding-bottom: 4px;
+}
 </style>
 """, unsafe_allow_html=True)
 
